@@ -2,8 +2,21 @@
   {
     "title": "Project 1",
     "description": "Description for project 1.",
-    "imgSrc": "src/assets/Hrteam/hrtream1.png",
-    "tags": ["HTML/CSS", "Git", "API Integration", "Material UI", "React", "JavaScript", "Responsive design"],
-    "images": ["src/assets/Hrteam/hrteam2.png", "src/assets/Hrteam/hrteam3.png", "src/assets/Hrteam/hrteam4.png", "src/assets/Hrteam/hrteam5.png"]
+    "imgSrc": "https://i.ibb.co/6yHfKmX/hrtream1.png",
+    "tags": [
+      "HTML/CSS",
+      "Git",
+      "API Integration",
+      "Material UI",
+      "React",
+      "JavaScript",
+      "Responsive design"
+    ],
+    "images": [
+      "https://i.ibb.co/YLF9GkP/hrteam2.png",
+      "https://i.ibb.co/GCHzPX6/hrteam3.png",
+      "https://i.ibb.co/4sjjsPS/hrteam4.png",
+      "https://i.ibb.co/LdkPLqm/hrteam5.png"
+    ]
   }
 ]

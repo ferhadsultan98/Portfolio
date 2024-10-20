@@ -23,11 +23,10 @@ const Projects = () => {
   const openModal = (images) => {
     setCurrentImages(images);
     setModalOpen(true);
-    // Modal açılınca overlay'e active sınıfı ekle
     setTimeout(() => {
       const overlay = document.querySelector('.modal-overlay');
       overlay.classList.add('active');
-    }, 10); // Kısa bir süre sonra active sınıfını ekle
+    }, 10); 
   };
 
   const closeModal = () => {
