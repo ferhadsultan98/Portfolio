@@ -1,21 +1,104 @@
-import React from 'react'
-import './About.css'
-import FarhadJPG from '../../assets/farhad.jpg'
+import React from "react";
+import {
+  FaFacebookF,
+  FaGithub,
+  FaInstagram,
+  FaLocationArrow,
+} from "react-icons/fa";
+import "./About.css";
+import { FaLinkedinIn } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
+import { IoIosMail } from "react-icons/io";
 
-const About = () => {
+const AboutSection = () => {
   return (
-    <div className="AboutContainer">
-    <div className="left">
-      <h1>Aboutme</h1>
-      <h1>.</h1>
-    </div>
-    <div className="right">
-      <div className="myphoto">
-        <img src={FarhadJPG} alt="" />
+    <div className="AboutSectionContainer">
+      <h1>About</h1>
+      <hr className="about-separator" />
+      <div className="about-container">
+        <div className="about-card">
+          <div className="about-content">
+            <p>
+              I’m an aspiring frontend developer born on June 15, 1998, in
+              Agstafa, Azerbaijan. I hold a bachelor's and master's degree in
+              from Azerbaijan Technical University. I’m passionate about
+              creating user-friendly interfaces using HTML, CSS, JavaScript, and
+              frameworks like React. I look forward to connecting and
+              collaborating on projects!
+            </p>
+            <div className="about-tags">
+              <span className="tag">#Innovative</span>
+              <span className="tag">#Developer</span>
+              <span className="tag">#Designer</span>
+              <span className="tag">#Frontend</span>
+              <span className="tag">#UIUX</span>
+              <span className="tag">#JavaScript</span>
+              <span className="tag">#ReactJS</span>
+              <span className="tag">#CSS</span>
+              <span className="tag">#ResponsiveDesign</span>
+            </div>
+            <div className="contact-info-container">
+              <h2>Contact</h2>
+              <div className="CommonContact">
+                <a>
+                  <p>
+                    <i>
+                      <FaLocationArrow size="1.2em" />
+                    </i>
+                    Baku, N.Narimanov
+                  </p>
+                </a>
+                <a href="tel:+994555254193">
+                  <p>
+                    <i>
+                      <IoIosCall size="1.6em" />
+                    </i>
+                    +994 (55) 525 4193
+                  </p>
+                </a>
+                <a href="mailto:sultanoworks@gmail.com?subject=Hi Farhad Sultan">
+                  <p>
+                    <i>
+                      <IoIosMail size="1.6em" />
+                    </i>
+                    sultanoworks@gmail.com
+                  </p>
+                </a>
+              </div>
+              <div className="ContactLinks">
+                <ul className="SocialIcons">
+                  <a href="https://www.facebook.com/ferhad.sultann" target="blank">
+                  <li className="icon facebook">
+                    <span className="iconname">Facebook</span>
+                    <FaFacebookF size="1.6em" />
+                  </li>
+                  </a>
+                  <a href="https://www.linkedin.com/in/farhadsultan98/" target="blank">
+                  <li className="icon linkedin">
+                    <span className="iconname">Linkedin</span>
+                    <FaLinkedinIn size="1.6em" />
+                  </li>
+                  </a>
+                  <a href="https://www.instagram.com/ferhad.sultann" target="blank">
+                  <li className="icon instagram">
+                    <span className="iconname">Instagram</span>
+                    <FaInstagram size="1.6em" />
+                  </li>
+                  </a>
+                  <a href="https://github.com/ferhadsultan98" target="blank">
+                  <li className="icon github">
+                    <span className="iconname">Github</span>
+                    <FaGithub size="1.6em" />
+                  </li>
+                  </a>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default About
+export default AboutSection;
