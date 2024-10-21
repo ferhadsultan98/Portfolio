@@ -1,13 +1,13 @@
 /* Header Styles */
 header {
-  min-width: 60vw;
+  min-width: 60%;
   height: 60px;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 60px;
   font-size: 32px;
   font-weight: bold;
   box-sizing: border-box;
@@ -48,15 +48,14 @@ header:hover {
   display: flex;
   
 }
-
+.logo img{
+  width: 50px;
+}
 .logo:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.logo p:last-child {
-  color: #00aaff;
-}
 
 .menu-toggle {
   display: none;
@@ -184,3 +183,4 @@ header ul li:hover::after {
     display: block; /* Make link area clickable */
   }
 }
+

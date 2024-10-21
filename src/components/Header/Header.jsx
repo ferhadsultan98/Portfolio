@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Twirl as Hamburger } from 'hamburger-react'
 import './Header.css';
+import HeaderLogo from '../../assets/FS.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ const Header = () => {
       case 'projects':
         return isMobile ? 1300 : 700; 
       case 'about':
-        return isMobile ? 2600 : 3200; 
+        return isMobile ? 2000 : 3200; 
       default:
         return 0; 
     }
@@ -50,8 +51,7 @@ const Header = () => {
     <header className={`header ${isHeaderVisible ? 'visible' : 'hidden'}`}>
       <div className="logo" title='Farhad Sultanov'>
         <a onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <p>SultanovF</p>
-          <p>.</p>
+          <img src={HeaderLogo} alt="" />
         </a>
       </div>
       <div className="header-right">

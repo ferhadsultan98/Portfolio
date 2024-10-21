@@ -25,12 +25,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #00aaffc6;
 }
-  body {
-    background: hsl(0, 0%, 2%);
-    display: grid;
-    place-items: center;
-    color: white;
-    gap: 1rem;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }

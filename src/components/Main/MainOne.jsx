@@ -5,12 +5,11 @@ import FarhaddJPG from "../../assets/farhad.jpg";
 import Projects from "../Projects/Projects";
 import AboutSection from "../About/About";
 import { FaDownload } from "react-icons/fa";
+import BackVideo from '../../assets/BackVideo.mp4'
 
 const MainOne = () => {
-  // Projects bölümüne referans
   const projectsRef = useRef(null);
 
-  // Projects butonuna tıklandığında kaydırma işlemi
   const scrollToProjects = () => {
     if (projectsRef.current) {
       projectsRef.current.scrollIntoView({ behavior: "smooth" });
@@ -19,6 +18,12 @@ const MainOne = () => {
 
   return (
     <div className="CommonMenu">
+      {/* Arka planda video */}
+      <video autoPlay muted loop className="background-video">
+        <source src={BackVideo} type="video/mp4" />
+        Tarayıcınız videoyu desteklemiyor.
+      </video>
+
       <div className="MainOne">
         <div className="left">
           <div className="hi">
@@ -39,7 +44,6 @@ const MainOne = () => {
           </div>
           <div className="buttons">
             <a href="https://drive.usercontent.google.com/u/0/uc?id=1gSe7ubc4RmjlAA47F6RfIQUsCvlAkHdn&export=download">
-              {" "}
               <button className="downloadbutton" type="button">
                 <span className="downloadbutton__text">Download CV</span>
                 <span className="downloadbutton__icon">
