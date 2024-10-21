@@ -1,6 +1,6 @@
 /* Header Styles */
 header {
-  min-width: 60%;
+  min-width: 65%;
   height: 60px;
   background-color: white;
   display: flex;
@@ -152,16 +152,16 @@ header ul li:hover::after {
   }
   @keyframes backgroundAnimation {
   0% {
-    background-color: #00aaff96;
-    backdrop-filter: blur(10px)
+    background-color: #00aaff;
+    backdrop-filter: blur(14px)
     
   }
   50% {
-    background-color: rgba(128, 128, 128, 0.76);
+    background-color: rgb(128, 128, 128);
     backdrop-filter: blur(10px)
   }
   100% {
-    background-color: #00aaff96;
+    background-color: #00aaff;
     backdrop-filter: blur(10px)
   }
 }
