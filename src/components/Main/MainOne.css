@@ -235,23 +235,23 @@ body {
 
 @keyframes shadowAnimation {
   0% {
-    box-shadow: 8px 10px 25px rgba(0, 51, 0, 0.4); /* Koyu yeşil */
+    box-shadow: 8px 10px 25px rgb(0, 51, 0); /* Koyu yeşil */
     transform: rotate(0deg);
   }
   25% {
-    box-shadow: 12px 12px 30px rgba(0, 0, 102, 0.4); /* Koyu mavi */
+    box-shadow: 12px 12px 30px rgb(0, 0, 102); /* Koyu mavi */
     transform: rotate(90deg);
   }
   50% {
-    box-shadow: 8px 15px 25px rgba(0, 51, 0, 0.4); /* Koyu yeşil */
+    box-shadow: 8px 15px 25px rgb(0, 51, 0); /* Koyu yeşil */
     transform: rotate(180deg);
   }
   75% {
-    box-shadow: 10px 10px 30px rgba(0, 0, 102, 0.4); /* Koyu mavi */
+    box-shadow: 10px 10px 30px rgb(0, 0, 102); /* Koyu mavi */
     transform: rotate(270deg);
   }
   100% {
-    box-shadow: 8px 10px 25px rgba(0, 51, 0, 0.4); /* Koyu yeşil */
+    box-shadow: 8px 10px 25px rgb(0, 51, 0); /* Koyu yeşil */
     transform: rotate(360deg);
   }
 }
