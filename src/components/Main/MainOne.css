@@ -13,10 +13,9 @@ body {
   overflow-x: hidden;
 }
 .up h1 {
-  width: 500px; 
+  width: 400px; 
   white-space: nowrap; 
   display: inline-block;
-  overflow: hidden;
 }
 .name-container {
   font-size: 2em;
