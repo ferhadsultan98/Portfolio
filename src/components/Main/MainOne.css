@@ -18,15 +18,7 @@ body {
   display: inline-block;
   overflow: hidden;
 }
-.name-container {
-  font-size: 2em;
-  font-weight: bold;
-  color: #333;
-  padding: 20px;
-  border: 2px solid #333;
-  border-radius: 10px;
-  background-color: white;
-}
+
 
 .CommonMenu {
   position: relative;
@@ -76,11 +68,11 @@ body {
 }
 
 .frontend {
-  font-size: 50px; /* Reduce font size */
+  font-size: 48px; 
 }
 
 .frontend .up {
-  display: flex;
+  width: 500px;
   height: 90px;
 }
 
