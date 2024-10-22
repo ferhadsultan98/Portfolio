@@ -1,14 +1,42 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./MainOne.css";
 import HelloImg from "../../assets/hi.png";
 import FarhaddJPG from "../../assets/farhad.jpg";
 import Projects from "../Projects/Projects";
 import AboutSection from "../About/About";
 import { FaDownload } from "react-icons/fa";
-import BackVideo from '../../assets/BackVideo.mp4'
+import BackVideo from '../../assets/BackVideo.mp4';
 
 const MainOne = () => {
   const projectsRef = useRef(null);
+  const [frontendText, setFrontendText] = useState("Frontend");
+
+  useEffect(() => {
+    const words = ["Frontend", "Web"]; 
+    let index = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const typeEffect = () => {
+      const currentWord = words[index];
+      if (!isDeleting && charIndex < currentWord.length) {
+        setFrontendText(currentWord.substring(0, charIndex + 1));
+        charIndex++;
+      } else if (isDeleting && charIndex > 0) {
+        setFrontendText(currentWord.substring(0, charIndex - 1));
+        charIndex--;
+      } else if (charIndex === currentWord.length && !isDeleting) {
+        setTimeout(() => (isDeleting = true), 1000); 
+      } else if (charIndex === 0 && isDeleting) {
+        isDeleting = false;
+        index = (index + 1) % words.length;
+      }
+    };
+
+    const intervalId = setInterval(typeEffect, 200); 
+
+    return () => clearInterval(intervalId); 
+  }, []);
 
   const scrollToProjects = () => {
     if (projectsRef.current) {
@@ -32,7 +60,7 @@ const MainOne = () => {
           </div>
           <div className="frontend">
             <div className="up">
-              <h1>FrontEnd</h1>
+              <h1>{frontendText}</h1> {/* Burada animasyonlu metin gösterilecek */}
             </div>
             <h1>Developer</h1>
           </div>
