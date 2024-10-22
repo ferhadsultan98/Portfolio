@@ -322,11 +322,12 @@ body {
   }
   .frontend .up {
     display: flex;
-    justify-content: center; /* Center text */
-    align-items: center; /* Center vertically */
     height: 90px;
-    width: 150px; /* Fixed width */
-    overflow: hidden; /* Hide overflow */
+    width: 100%; /* Use percentage for responsiveness */
+    max-width: 150px; /* Set a maximum width */
+    overflow: hidden;
+    white-space: nowrap;
+    justify-content: center;
   }
   .left .info {
     font-size: 22px;
