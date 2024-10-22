@@ -12,18 +12,26 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.up h1 {
-  width: 400px; 
-  white-space: nowrap; 
-  display: inline-block;
-  overflow: hidden;
-}
-
 
 .CommonMenu {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  z-index: 1; 
+  z-index: 1; /* İçeriğin video üzerinde görünmesi için */
 }
+.CommonMenu .MainOne {
+  margin-bottom: 30vh;
+  height: 100%;
+}
+.CommonMenu .ProjectsSection {
+  height: 100%;
+  margin-bottom: 42vh;
+}
+.CommonMenu .AboutSection {
+  height: 100%;
+  margin-bottom: 25vh;
+}
+
 .background-video {
   position: fixed;
   top: 50%;
@@ -44,6 +52,7 @@ body {
   justify-content: center;
   gap: 80px;
   height: 80vh;
+  overflow: hidden;
 }
 
 /* Left Section */
@@ -68,11 +77,11 @@ body {
 }
 
 .frontend {
-  font-size: 48px; 
+  font-size: 50px; 
 }
 
 .frontend .up {
-  width: 500px;
+  display: flex;
   height: 90px;
 }
 
@@ -81,10 +90,11 @@ body {
 }
 
 .left .info {
-  font-size: 26px; /* Reduce font size */
+  font-size: 26px;
   color: gray;
   margin: 10px 0;
-  max-width: 800px; /* Prevent overflow */
+  max-width: 600px;
+  text-align: center;
 }
 
 /* Button Styles */
@@ -223,8 +233,8 @@ body {
 
 /* Right Section */
 .right {
-  position: relative; 
-  display: inline-block; 
+  position: relative;
+  display: inline-block;
 }
 
 .shadow-div {
@@ -233,10 +243,10 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 100%; 
-  box-shadow: 8px 10px 28px gray; 
-  z-index: -1; 
-  
+  border-radius: 100%;
+  box-shadow: 8px 10px 28px gray;
+  z-index: -1;
+
   animation: shadowAnimation 6s infinite linear; /* Linear ekleyerek akıcı hale getirdik */
   transition: 1s;
 }
@@ -264,8 +274,6 @@ body {
   }
 }
 
-
-
 .myphoto {
   position: relative; /* Resmin konumunu ayarlamak için */
 }
@@ -285,8 +293,6 @@ body {
   transform: scale(1);
   filter: brightness(0.8) saturate(0.5) blur(1px); /* Donmuş görünüm için efektler */
 }
-
-
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
@@ -316,10 +322,11 @@ body {
     transform: translateX(4px);
   }
   .frontend {
-    font-size: 50px;
-    max-width: 400px;
+    font-size: 36px;
   }
-
+  .frontend .up{
+    max-width: 100%;
+  }
   .left .info {
     font-size: 22px;
   }
@@ -338,19 +345,3 @@ body {
   }
 }
 /* Common Menu Started */
-.CommonMenu {
-  display: flex;
-  flex-direction: column;
-}
-.CommonMenu .MainOne {
-  margin-bottom: 30vh;
-  height: 100%;
-}
-.CommonMenu .ProjectsSection {
-  height: 100%;
-  margin-bottom: 42vh;
-}
-.CommonMenu .AboutSection {
-  height: 100%;
-  margin-bottom: 25vh;
-}
