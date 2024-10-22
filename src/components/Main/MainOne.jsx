@@ -46,7 +46,6 @@ const MainOne = () => {
 
   return (
     <div className="CommonMenu">
-      {/* Arka planda video */}
       <video autoPlay muted loop className="background-video">
         <source src={BackVideo} type="video/mp4" />
         Tarayıcınız videoyu desteklemiyor.

@@ -12,9 +12,24 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+.up h1 {
+  width: 500px; 
+  white-space: nowrap; 
+  display: inline-block;
+}
+.name-container {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: white;
+}
+
 .CommonMenu {
   position: relative;
-  z-index: 1; /* İçeriğin video üzerinde görünmesi için */
+  z-index: 1; 
 }
 .background-video {
   position: fixed;
