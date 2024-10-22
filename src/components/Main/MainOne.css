@@ -12,6 +12,12 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+.up h1 {
+  width: 400px; 
+  white-space: nowrap; 
+  display: inline-block;
+  overflow: hidden;
+}
 .name-container {
   font-size: 2em;
   font-weight: bold;
@@ -320,15 +326,7 @@ body {
   .frontend {
     font-size: 36px;
   }
-  .frontend .up {
-    display: flex;
-    height: 90px;
-    width: 100%; /* Use percentage for responsiveness */
-    max-width: 150px; /* Set a maximum width */
-    overflow: hidden;
-    white-space: nowrap;
-    justify-content: center;
-  }
+
   .left .info {
     font-size: 22px;
   }
