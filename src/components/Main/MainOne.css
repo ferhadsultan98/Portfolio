@@ -243,38 +243,15 @@ body {
   right: 0;
   bottom: 0;
   border-radius: 100%;
-  box-shadow: 8px 10px 28px gray;
   z-index: -1;
-
-  animation: shadowAnimation 6s infinite linear; /* Linear ekleyerek akıcı hale getirdik */
   transition: 1s;
 }
 
-@keyframes shadowAnimation {
-  0% {
-    box-shadow: 8px 10px 25px rgb(0, 51, 0); /* Koyu yeşil */
-    transform: rotate(0deg);
-  }
-  25% {
-    box-shadow: 12px 12px 30px rgb(0, 0, 102); /* Koyu mavi */
-    transform: rotate(90deg);
-  }
-  50% {
-    box-shadow: 8px 15px 25px rgb(0, 51, 0); /* Koyu yeşil */
-    transform: rotate(180deg);
-  }
-  75% {
-    box-shadow: 10px 10px 30px rgb(0, 0, 102); /* Koyu mavi */
-    transform: rotate(270deg);
-  }
-  100% {
-    box-shadow: 8px 10px 25px rgb(0, 51, 0); /* Koyu yeşil */
-    transform: rotate(360deg);
-  }
-}
+
 
 .myphoto {
-  position: relative; /* Resmin konumunu ayarlamak için */
+  position: relative; 
+
 }
 
 .myphoto img {
@@ -282,13 +259,10 @@ body {
   border-radius: 100%;
   transform: scale(0.95);
   transition: 1s;
+  border: 5px solid white;
 }
 
-.right:hover .shadow-div {
-  box-shadow: none; /* Hover durumunda box-shadow'u kaldır */
-}
-
-.right:hover .myphoto img {
+.myphoto:hover  img {
   transform: scale(1);
   filter: brightness(0.8) saturate(0.5) blur(1px); /* Donmuş görünüm için efektler */
 }
