@@ -48,10 +48,9 @@ body {
   padding-top: 15vh;
   display: grid;
   grid-template-columns: 500px 400px;
-  grid-template-rows: 400px;
+  grid-template-rows: 500px;
   justify-content: center;
   gap: 80px;
-  height: 80vh;
   overflow: hidden;
 }
 
