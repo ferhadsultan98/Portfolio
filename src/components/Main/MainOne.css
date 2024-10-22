@@ -12,11 +12,6 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.up h1 {
-  width: 400px; 
-  white-space: nowrap; 
-  display: inline-block;
-}
 .name-container {
   font-size: 2em;
   font-weight: bold;
@@ -325,7 +320,14 @@ body {
   .frontend {
     font-size: 36px;
   }
-
+  .frontend .up {
+    display: flex;
+    justify-content: center; /* Center text */
+    align-items: center; /* Center vertically */
+    height: 90px;
+    width: 150px; /* Fixed width */
+    overflow: hidden; /* Hide overflow */
+  }
   .left .info {
     font-size: 22px;
   }
