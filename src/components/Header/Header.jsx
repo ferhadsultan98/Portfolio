@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Twirl as Hamburger } from 'hamburger-react'
-import './Header.css';
-import HeaderLogo from '../../assets/FS.png'
+import React, { useState, useEffect } from "react";
+import { Twirl as Hamburger } from "hamburger-react";
+import "./Header.css";
+import HeaderLogo from "../../assets/FS.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,14 +9,14 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const getScrollHeight = (section) => {
-    const isMobile = window.innerWidth <= 768; 
+    const isMobile = window.innerWidth <= 768;
     switch (section) {
-      case 'projects':
-        return isMobile ? 1300 : 700; 
-      case 'about':
-        return isMobile ? 2000 : 3200; 
+      case "projects":
+        return isMobile ? 1300 : 700;
+      case "about":
+        return isMobile ? 2000 : 3200;
       default:
-        return 0; 
+        return 0;
     }
   };
 
@@ -24,13 +24,13 @@ const Header = () => {
     const height = getScrollHeight(section);
     window.scrollTo({
       top: height,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
     setIsMenuOpen(false); // Menü kapatılıyor
   };
 
   const handleScroll = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (window.scrollY > lastScrollY) {
         setIsHeaderVisible(false);
       } else {
@@ -41,32 +41,36 @@ const Header = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
-
   return (
-    <header className={`header ${isHeaderVisible ? 'visible' : 'hidden'}`}>
-      <div className="logo" title='Farhad Sultanov'>
-        <a onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+    <header
+      className={`header ${isHeaderVisible ? "visible" : "hidden"}`}>
+      <div className="logo" title="Farhad Sultanov">
+        <a onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <img src={HeaderLogo} alt="" />
         </a>
       </div>
       <div className="header-right">
-        <i className='hamburger-react-menuicon'>
-        <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} color="black"/>
+        <i className="hamburger-react-menuicon">
+          <Hamburger
+            toggled={isMenuOpen}
+            toggle={setIsMenuOpen}
+            color="black"
+          />
         </i>
-        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+        <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
           <li>
-            <a onClick={() => scrollToSection('home')}>Home</a>
+            <a onClick={() => scrollToSection("home")}>Home</a>
           </li>
           <li>
-            <a onClick={() => scrollToSection('projects')}>Projects</a>
+            <a onClick={() => scrollToSection("projects")}>Projects</a>
           </li>
           <li>
-            <a onClick={() => scrollToSection('about')}>About</a>
+            <a onClick={() => scrollToSection("about")}>About</a>
           </li>
         </ul>
       </div>
