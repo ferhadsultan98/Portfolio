@@ -26,7 +26,7 @@ const MainOne = () => {
         setFrontendText(currentWord.substring(0, charIndex - 1));
         charIndex--;
       } else if (charIndex === currentWord.length && !isDeleting) {
-        setTimeout(() => (isDeleting = true), 1000); 
+        setTimeout(() => (isDeleting = true), 500); 
       } else if (charIndex === 0 && isDeleting) {
         isDeleting = false;
         index = (index + 1) % words.length;
@@ -44,6 +44,10 @@ const MainOne = () => {
     }
   };
 
+  const toggleTheme = () => {
+    setIsDarkMode(prevMode => !prevMode);
+  };
+
   return (
     <div className="CommonMenu">
       <video autoPlay muted loop className="background-video">
@@ -59,7 +63,7 @@ const MainOne = () => {
           </div>
           <div className="frontend">
             <div className="up">
-              <h1>{frontendText}</h1> {/* Burada animasyonlu metin gösterilecek */}
+              <h1>{frontendText}</h1>
             </div>
             <h1>Developer</h1>
           </div>

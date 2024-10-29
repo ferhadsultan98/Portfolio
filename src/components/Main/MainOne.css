@@ -19,6 +19,28 @@ body {
   position: relative;
   z-index: 1; /* İçeriğin video üzerinde görünmesi için */
 }
+.theme-toggle {
+  position: fixed;
+  bottom: 20px; /* Adjust position from the bottom */
+  right: 20px;  /* Adjust position from the right */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2em; /* Adjust size as needed */
+  z-index: 1000; /* Ensure it is above other content */
+  color: white;
+}
+
+/* Add other styles for light and dark themes as needed */
+.CommonMenu.light {
+  background-color: white;
+  color: black;
+}
+
+.CommonMenu.dark {
+  background-color: black;
+  color: white;
+}
 .CommonMenu .MainOne {
   margin-bottom: 30vh;
   height: 100%;
