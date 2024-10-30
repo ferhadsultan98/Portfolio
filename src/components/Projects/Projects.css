@@ -32,6 +32,7 @@
   overflow: hidden;
   position: relative;
   border-radius: 30px;
+  backdrop-filter: blur(6px);
 }
 
 @keyframes swing-in-top-fwd {
