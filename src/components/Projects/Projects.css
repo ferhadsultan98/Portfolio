@@ -53,13 +53,13 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Taşmayı engelle */
+  overflow: hidden;
 }
 
 .card-main img {
-  max-width: 100%; /* Maksimum genişlik %100 */
-  max-height: 100%; /* Maksimum yükseklik %100 */
-  object-fit: contain; /* Resmi kutunun içinde orantılı şekilde göster */
+  max-width: 100%; 
+  max-height: 100%; 
+  object-fit: contain; 
   transition: 1s;
 }
 
@@ -73,15 +73,17 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; 
   align-items: center;
-  padding: 2rem;
   text-align: center;
   background: hsla(0, 0%, 0%, 0.9);
-  gap: 1rem;
+  gap: 1rem; 
   visibility: hidden;
   opacity: 0;
   transform: translateY(100%);
+  overflow-y: auto;
+  height: 100%;
+  padding: 1rem; 
 }
 
 .card-hover a {
@@ -135,20 +137,33 @@
   align-items: center;
   border-radius: 15px;
   z-index: 99999999;
-  opacity: 0; 
-  transform: scale(0.9); 
-  transition: opacity 0.5s ease, transform 0.5s ease; 
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .modal-overlay.active {
-  opacity: 1; 
-  transform: scale(1); 
+  opacity: 1;
+  transform: scale(1);
+}
+.view-more {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.view-more:hover {
+  background-color: #0056b3;
 }
 .modal-content {
   background: white;
-  padding: 30px; 
+  padding: 30px;
   position: relative;
-  width: 80vw; 
-  max-width: 1000px; 
+  width: 80vw;
+  max-width: 1000px;
   overflow: hidden;
   animation: backgroundAnimation 5s infinite;
   border-radius: 15px;
@@ -206,7 +221,7 @@
   }
   .modal-content {
     width: 80%;
-    padding: 10px; 
+    padding: 10px;
   }
   .slide {
     min-width: 100%;
@@ -214,11 +229,11 @@
   .slideshow img {
     height: 25vh;
   }
-  .close-button{
+  .close-button {
     top: 0px;
     right: 0px;
   }
-  .close-button i{
+  .close-button i {
     font-size: 25px;
   }
 }

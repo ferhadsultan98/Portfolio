@@ -16,7 +16,7 @@
 
 .AboutSectionContainer .about-card {
   display: flex;
-  background: linear-gradient(135deg, #00aaff, #0047ab);
+border: 1px solid gray;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -127,7 +127,7 @@
 }
 .SocialIcons .icon {
   position: relative;
-  background: #fff;
+  background: rgba(128, 128, 128, 0.808);
   color: black;
   border-radius: 50%;
   margin: 10px;
@@ -154,18 +154,6 @@
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.SocialIcons .iconname::before {
-  position: absolute;
-  content: "";
-  height: 8px;
-  width: 8px;
-  background: #fff;
-  bottom: -3px;
-  left: 50%;
-  transform: translate(-50%) rotate(45deg);
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -198,7 +186,7 @@
 .SocialIcons .instagram:hover,
 .SocialIcons .instagram:hover .iconname,
 .SocialIcons .instagram:hover .iconname::before {
-  background: #e4405f;
+  background: linear-gradient(45deg, #f58529, #f77737, #fd1d1d, #c13584, #833ab4);
   color: #fff;
 }
 .SocialIcons .github:hover,

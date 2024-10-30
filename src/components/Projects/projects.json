@@ -1,7 +1,7 @@
 [
   {
-    "title": "Project 1",
-    "description": "Description for project 1.",
+    "title": "HR Team",
+    "description": "HR Team is a modern platform that streamlines human resources processes. It optimizes recruitment, employee management, and performance evaluations.",
     "imgSrc": "https://i.ibb.co/6yHfKmX/hrtream1.png",
     "tags": [
       "HTML/CSS",
@@ -17,6 +17,39 @@
       "https://i.ibb.co/GCHzPX6/hrteam3.png",
       "https://i.ibb.co/4sjjsPS/hrteam4.png",
       "https://i.ibb.co/LdkPLqm/hrteam5.png"
+    ]
+  },
+  {
+    "title": "Varsity University",
+    "description": "Varsity University is a vibrant institution focused on academic excellence and innovation. It offers diverse programs and fosters a supportive community, preparing students for successful careers.",
+    "imgSrc": "https://i.ibb.co/tBmF8BS/FP1.png",
+    "tags": [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "API Integration",
+      "Material UI",
+      "Chakra UI",
+      "Bootstrap",
+      "Slick Slider React",
+      "Responsive design",
+      "Git",
+      "Vercel",
+      "Netlify"
+    ],
+    "images": [
+      "https://i.ibb.co/KLk5xpb/FP2.png",
+      "https://i.ibb.co/WyDF8w0/FP3.png",
+      "https://i.ibb.co/QYnGW5N/FP4.png",
+      "https://i.ibb.co/6YtDGjm/FP5.png",
+      "https://i.ibb.co/tmXrjNp/FP6.png",
+      "https://i.ibb.co/0rhcgtw/FP7.png",
+      "https://i.ibb.co/wJNrrhK/FP8.png",
+      "https://i.ibb.co/p4WV4xk/FP9.png",
+      "https://i.ibb.co/G06Jr8p/FP10.png",
+      "https://i.ibb.co/D9tYtZc/FP11.png",
+      "https://i.ibb.co/znHm0dw/FP12.png",
+      "https://i.ibb.co/QX0zWFX/FP13.png"
     ]
   }
 ]

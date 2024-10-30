@@ -8,6 +8,7 @@ import { FaDownload } from "react-icons/fa";
 import BackVideo from "../../assets/BackVideo.mp4";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import CVSection from "../CV/CVSection";
 
 const MainOne = () => {
   const projectsRef = useRef(null);
@@ -53,6 +54,7 @@ const MainOne = () => {
   }, []);
   return (
     <div className="CommonMenu">
+      <div className="falling-stone"></div>
       <video autoPlay muted loop className="background-video">
         <source src={BackVideo} type="video/mp4" />
         Tarayıcınız videoyu desteklemiyor.
@@ -111,11 +113,15 @@ const MainOne = () => {
       >
         <Projects />
       </div>
-      <div className="AboutSection"
-      data-aos="fade-down"
-      data-aos-anchor-placement="center-bottom"
+      <div
+        className="AboutSection"
+        data-aos="fade-down"
+        data-aos-anchor-placement="center-bottom"
       >
         <AboutSection />
+      </div>
+      <div className="CVSection" data-aos="fade-up">
+        <CVSection />
       </div>
     </div>
   );

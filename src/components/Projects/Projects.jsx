@@ -34,7 +34,7 @@ const Projects = () => {
     overlay.classList.remove('active');
     setTimeout(() => {
       setModalOpen(false);
-    }, 500); // Geçiş tamamlandıktan sonra modal kapansın
+    }, 500);
   };
 
   return (
@@ -43,7 +43,7 @@ const Projects = () => {
       <hr className="project-separator" />
       <div className="card-container">
         {cards.map((card, index) => (
-          <div className="card" key={index} onClick={() => openModal(card.images)}>
+          <div className="card" key={index}>
             <div className="card-main">
               <img src={card.imgSrc} alt={`${card.title} Logo`} />
             </div>
@@ -53,11 +53,13 @@ const Projects = () => {
               </a>
               <h3>{card.title}</h3>
               <p>{card.description}</p>
+              <button className="view-more" onClick={() => openModal(card.images)}>View More</button>
               <div className="tags">
                 {card.tags.map((tag, tagIndex) => (
                   <div className="tag" key={tagIndex}>{tag}</div>
                 ))}
               </div>
+            
             </div>
           </div>
         ))}
