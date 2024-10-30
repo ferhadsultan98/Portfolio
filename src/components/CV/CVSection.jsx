@@ -11,7 +11,6 @@ const CVSection = () => {
   return (
     <div className="cv-section">
       <h2 className="cv-title">Curriculum Vitae</h2>
-
       <div className="cv-content">
         <button
           className="circle-button"

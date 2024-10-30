@@ -120,9 +120,9 @@ const MainOne = () => {
       >
         <AboutSection />
       </div>
-      <div className="CVSection" data-aos="fade-up">
+      {/* <div className="CVSection" data-aos="fade-up">
         <CVSection />
-      </div>
+      </div> */}
     </div>
   );
 };
