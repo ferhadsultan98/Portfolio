@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 0;
+  padding: 25px;
   box-sizing: border-box;
 }
 body {
@@ -13,7 +13,6 @@ body {
   gap: 1rem;
   box-sizing: border-box;
   overflow-x: hidden;
-  padding: 15px;
 }
 
 .CommonMenu {
