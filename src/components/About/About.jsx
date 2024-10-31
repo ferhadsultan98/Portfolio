@@ -31,7 +31,7 @@ const AboutSection = () => {
               <span className="tag">#Developer</span>
               <span className="tag">#Designer</span>
               <span className="tag">#Frontend</span>
-              <span className="tag">#UIUX</span>
+              <span className="tag">#UI/UX</span>
               <span className="tag">#JavaScript</span>
               <span className="tag">#ReactJS</span>
               <span className="tag">#CSS</span>
