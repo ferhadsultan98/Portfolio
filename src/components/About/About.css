@@ -20,6 +20,7 @@
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  margin: 15px;
 }
 
 .AboutSectionContainer .about-content {
@@ -209,7 +210,7 @@
     margin: 10px auto;
   }
   .AboutSectionContainer .about-container {
-    margin: 15px;
+    margin: 0 auto;
   }
   .contact-info-container .CommonContact {
     display: flex;

@@ -14,7 +14,7 @@ const Header = () => {
       case "projects":
         return isMobile ? 1300 : 700;
       case "about":
-        return isMobile ? 2200 : 3200;
+        return isMobile ? 2400 : 3200;
       default:
         return 0;
     }

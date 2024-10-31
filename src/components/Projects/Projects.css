@@ -16,8 +16,10 @@
   margin: 5vh auto;
 }
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   gap: 1rem;
   place-items: center;
