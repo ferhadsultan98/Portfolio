@@ -59,7 +59,6 @@ const Projects = () => {
                   <div className="tag" key={tagIndex}>{tag}</div>
                 ))}
               </div>
-            
             </div>
           </div>
         ))}
