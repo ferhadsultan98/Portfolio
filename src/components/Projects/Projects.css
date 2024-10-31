@@ -13,7 +13,7 @@
 .project-separator {
   border: 1px solid #ccc;
   width: 10%;
-  margin: 10px auto;
+  margin: 5vh auto;
 }
 .card-container {
   display: grid;

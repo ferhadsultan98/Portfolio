@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 1; /* İçeriğin video üzerinde görünmesi için */
+  z-index: 1;
 }
 .theme-toggle {
   position: fixed;
@@ -339,7 +339,6 @@ body {
     margin: 50px;
   }
 }
-/* Common Menu Started */
 
 
 
