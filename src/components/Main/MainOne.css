@@ -13,6 +13,7 @@ body {
   gap: 1rem;
   box-sizing: border-box;
   overflow-x: hidden;
+  padding: 15px;
 }
 
 .CommonMenu {
