@@ -1,6 +1,6 @@
 /* Header Styles */
 header {
-  min-width: 60%;
+  min-width: 65%;
   height: 60px;
   background-color: white;
   display: flex;
@@ -179,8 +179,8 @@ header .nav-links li {
   }
 
   header .nav-links li a {
-    padding: 10px; /* Optional: add padding for better click area */
-    display: block; /* Make link area clickable */
+    padding: 10px; 
+    display: block; 
   }
 }
 

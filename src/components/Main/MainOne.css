@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  gap: 1rem;
+  overflow-x: hidden;
 }
 
 .CommonMenu {
@@ -19,6 +19,7 @@ body {
   justify-content: center;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 .CommonMenu .theme-toggle {
   position: fixed;
@@ -86,7 +87,7 @@ body {
 }
 
 .CommonMenu .hi h1 {
-  font-size: 30px; /* Reduce font size */
+  font-size: 30px; 
 }
 
 .CommonMenu .frontend {
@@ -250,16 +251,7 @@ body {
   display: inline-block;
 }
 
-.CommonMenu .shadow-div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 100%;
-  z-index: -1;
-  transition: 1s;
-}
+
 
 .CommonMenu .myphoto {
   position: relative; 
@@ -311,6 +303,7 @@ body {
   }
   .CommonMenu .frontend .up{
     max-width: 100%;
+    display: flex;
   }
   .CommonMenu .left .info {
     font-size: 22px;

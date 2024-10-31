@@ -98,7 +98,6 @@ const MainOne = () => {
           </div>
         </div>
         <div className="right">
-          <div className="shadow-div"></div>
           <div className="myphoto">
             <img src={FarhaddJPG} alt="" />
           </div>
