@@ -21,28 +21,19 @@ body {
   position: relative;
   z-index: 1;
 }
-.theme-toggle {
+.CommonMenu .theme-toggle {
   position: fixed;
-  bottom: 20px; /* Adjust position from the bottom */
-  right: 20px;  /* Adjust position from the right */
+  bottom: 20px; 
+  right: 20px;  
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 2em; /* Adjust size as needed */
-  z-index: 1000; /* Ensure it is above other content */
+  font-size: 2em; 
+  z-index: 1000; 
   color: white;
 }
 
 /* Add other styles for light and dark themes as needed */
-.CommonMenu.light {
-  background-color: white;
-  color: black;
-}
-
-.CommonMenu.dark {
-  background-color: black;
-  color: white;
-}
 .CommonMenu .MainOne {
   margin-bottom: 30vh;
   height: 100%;
@@ -56,7 +47,7 @@ body {
   margin-bottom: 25vh;
 }
 
-.background-video {
+.CommonMenu .background-video {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -68,7 +59,7 @@ body {
   transform: translate(-50%, -50%);
 }
 /* Main Container */
-.MainOne {
+.CommonMenu .MainOne {
   padding-top: 15vh;
   display: grid;
   grid-template-columns: 500px 400px;
@@ -79,40 +70,40 @@ body {
 }
 
 /* Left Section */
-.left {
+.CommonMenu .left {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.left .hi {
+.CommonMenu .left .hi {
   display: flex;
   gap: 5px;
   align-items: center;
 }
 
-.hi img {
+.CommonMenu .hi img {
   width: 40px;
 }
 
-.hi h1 {
+.CommonMenu .hi h1 {
   font-size: 30px; /* Reduce font size */
 }
 
-.frontend {
+.CommonMenu .frontend {
   font-size: 50px; 
 }
 
-.frontend .up {
+.CommonMenu .frontend .up {
   display: flex;
   height: 90px;
 }
 
-.frontend h1:first-child {
+.CommonMenu .frontend h1:first-child {
   color: #00aaff;
 }
 
-.left .info {
+.CommonMenu .left .info {
   font-size: 26px;
   color: gray;
   margin: 10px 0;
@@ -121,16 +112,16 @@ body {
 }
 
 /* Button Styles */
-.buttons {
+.CommonMenu .buttons {
   display: flex;
   gap: 10px;
   margin-top: 3vh;
 }
-.buttons a {
+.CommonMenu .buttons a {
   text-decoration: none;
 }
 /* From Uiverse.io by Farhad Sultan */
-.downloadbutton {
+.CommonMenu .downloadbutton {
   position: relative;
   padding: 0 10px;
   height: 100%;
@@ -143,20 +134,20 @@ body {
   border-radius: 15px;
 }
 
-.downloadbutton,
-.downloadbutton__icon,
-.downloadbutton__text {
+.CommonMenu .downloadbutton,
+.CommonMenu .downloadbutton__icon,
+.CommonMenu .downloadbutton__text {
   transition: all 0.3s;
 }
 
-.downloadbutton .downloadbutton__text {
+.CommonMenu .downloadbutton .downloadbutton__text {
   transform: translateX(0px);
   color: #fff;
   font-weight: 800;
   font-size: 16px;
 }
 
-.downloadbutton .downloadbutton__icon {
+.CommonMenu .downloadbutton .downloadbutton__icon {
   position: absolute;
   transform: translateX(138px);
   height: 100%;
@@ -167,36 +158,36 @@ body {
   justify-content: center;
 }
 
-.downloadbutton .svg {
+.CommonMenu .downloadbutton .svg {
   width: 20px;
   fill: #fff;
 }
 
-.downloadbutton:hover {
+.CommonMenu .downloadbutton:hover {
   background: #00aaff;
 }
 
-.downloadbutton:hover .downloadbutton__text {
+.CommonMenu .downloadbutton:hover .downloadbutton__text {
   color: transparent;
 }
 
-.downloadbutton:hover .downloadbutton__icon {
+.CommonMenu .downloadbutton:hover .downloadbutton__icon {
   width: 100px;
   transform: translateX(-36vw);
   transform: scale(1.8);
   text-align: center;
 }
 
-.downloadbutton:active .downloadbutton__icon {
+.CommonMenu .downloadbutton:active .downloadbutton__icon {
   background-color: #00aaff;
 }
 
-.downloadbutton:active {
+.CommonMenu .downloadbutton:active {
   border: 1px solid #00aaff;
 }
 /* Project Button */
 
-.ProjectButtonn {
+.CommonMenu .ProjectButtonn {
   position: relative;
   display: inline-block;
   padding: 20px;
@@ -212,7 +203,7 @@ body {
   box-sizing: border-box;
 }
 
-.ProjectButtonn::after {
+.CommonMenu .ProjectButtonn::after {
   content: "";
   position: absolute;
   background: linear-gradient(to right, #00aaff, black);
@@ -227,19 +218,19 @@ body {
   z-index: 0;
 }
 
-.ProjectButtonn:hover {
+.CommonMenu .ProjectButtonn:hover {
   color: #fff;
   transition-duration: 1.2s;
 }
 
-.ProjectButtonn:hover::after {
+.CommonMenu .ProjectButtonn:hover::after {
   right: -60px;
   bottom: -92px;
   width: 256px;
   height: 256px;
 }
 
-.ProjectButtonn > .ProjectButtonn-content {
+.CommonMenu .ProjectButtonn > .ProjectButtonn-content {
   position: relative;
   z-index: 2;
   font-size: 18px;
@@ -255,12 +246,12 @@ body {
 }
 
 /* Right Section */
-.right {
+.CommonMenu .right {
   position: relative;
   display: inline-block;
 }
 
-.shadow-div {
+.CommonMenu .shadow-div {
   position: absolute;
   top: 0;
   left: 0;
@@ -271,12 +262,12 @@ body {
   transition: 1s;
 }
 
-.myphoto {
+.CommonMenu .myphoto {
   position: relative; 
 
 }
 
-.myphoto img {
+.CommonMenu .myphoto img {
   width: 100%;
   border-radius: 100%;
   transform: scale(0.95);
@@ -284,58 +275,58 @@ body {
   border: 5px solid white;
 }
 
-.myphoto:hover  img {
+.CommonMenu .myphoto:hover  img {
   transform: scale(1);
   filter: brightness(0.8) saturate(0.5) blur(1px); /* Donmuş görünüm için efektler */
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-  .MainOne {
+  .CommonMenu .MainOne {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .left .info {
+  .CommonMenu .left .info {
     width: auto;
   }
 
-  .left {
+  .CommonMenu .left {
     align-items: center;
   }
 }
 
 @media (max-width: 768px) {
-  .MainOne {
+  .CommonMenu .MainOne {
     padding-top: 10vh;
     gap: 130px;
   }
-  .downloadbutton:hover .downloadbutton__icon {
+  .CommonMenu .downloadbutton:hover .downloadbutton__icon {
     width: 110px;
   }
-  .downloadbutton .downloadbutton__text {
+  .CommonMenu .downloadbutton .downloadbutton__text {
     transform: translateX(4px);
   }
-  .frontend {
+  .CommonMenu .frontend {
     font-size: 36px;
   }
-  .frontend .up{
+  .CommonMenu .frontend .up{
     max-width: 100%;
   }
-  .left .info {
+  .CommonMenu .left .info {
     font-size: 22px;
   }
 
-  .buttons {
+  .CommonMenu .buttons {
     justify-content: space-between;
   }
-  .buttons button {
+  .CommonMenu .buttons button {
     width: 34vw;
   }
-  .left .info {
+  .CommonMenu .left .info {
     max-width: 400px;
   }
-  .right {
+  .CommonMenu .right {
     margin: 50px;
   }
 }
