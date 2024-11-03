@@ -54,12 +54,10 @@ const MainOne = () => {
   }, []);
   return (
     <div className="CommonMenu">
-      <div className="falling-stone"></div>
       <video autoPlay muted loop className="background-video">
         <source src={BackVideo} type="video/mp4" />
         Tarayıcınız videoyu desteklemiyor.
       </video>
-
       <div
         className="MainOne"
         data-aos="fade-down"

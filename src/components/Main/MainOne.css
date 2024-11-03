@@ -23,13 +23,13 @@ body {
 }
 .CommonMenu .theme-toggle {
   position: fixed;
-  bottom: 20px; 
-  right: 20px;  
+  bottom: 20px;
+  right: 20px;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 2em; 
-  z-index: 1000; 
+  font-size: 2em;
+  z-index: 1000;
   color: white;
 }
 
@@ -89,11 +89,11 @@ body {
 }
 
 .CommonMenu .hi h1 {
-  font-size: 30px; 
+  font-size: 30px;
 }
 
 .CommonMenu .frontend {
-  font-size: 50px; 
+  font-size: 50px;
 }
 
 .CommonMenu .frontend .up {
@@ -253,11 +253,8 @@ body {
   display: inline-block;
 }
 
-
-
 .CommonMenu .myphoto {
-  position: relative; 
-
+  position: relative;
 }
 
 .CommonMenu .myphoto img {
@@ -268,7 +265,7 @@ body {
   border: 5px solid white;
 }
 
-.CommonMenu .myphoto:hover  img {
+.CommonMenu .myphoto:hover img {
   transform: scale(1);
   filter: brightness(0.8) saturate(0.5) blur(1px); /* Donmuş görünüm için efektler */
 }
@@ -303,7 +300,7 @@ body {
   .CommonMenu .frontend {
     font-size: 36px;
   }
-  .CommonMenu .frontend .up{
+  .CommonMenu .frontend .up {
     max-width: 100%;
     display: flex;
   }
@@ -324,6 +321,3 @@ body {
     margin: 50px;
   }
 }
-
-
-

@@ -1,3 +1,6 @@
+.AboutSectionContainer{
+  transition: 1s;
+}
 .AboutSectionContainer h1 {
   text-align: center;
   font-size: 2.5rem;
@@ -42,7 +45,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 .AboutSectionContainer .tag {
@@ -62,7 +65,6 @@
 
 /* Contact Info Styles */
 .AboutSectionContainer .contact-info-container {
-  margin-top: 2rem;
   text-align: center;
   padding: 2rem;
   border-radius: 12px;
@@ -202,6 +204,90 @@
   background: black;
   color: #fff;
 }
+/* Contact Inputs */
+.ContactInputs {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 70%;
+  padding: 20px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ContactInputs label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.ContactInputs input, 
+.ContactInputs textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  color: white;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+  background: transparent;
+  text-transform: capitalize;
+}
+
+.ContactInputs input:focus, 
+.ContactInputs textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.ContactInputs input::placeholder, 
+.ContactInputs textarea::placeholder {
+  color: #aaa;
+}
+
+.ContactInputs textarea {
+  resize: none;
+  height: 100px;
+}
+
+.ContactInputs #message-send {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ContactInputs #message-send:hover {
+  background-color: #0056b3;
+}
+.ContactInputs .notification {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  width: 80%;
+ margin: 15px auto;
+  text-align: center;
+  position: relative;
+  opacity: 0; /* Başlangıçta görünmez */
+  transform: translateY(20px); /* Aşağıdan gelme efekti */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Geçiş efekti */
+}
+
+.notification.show {
+  opacity: 1; /* Görünür hale gelir */
+  transform: translateY(0); /* Normal konumuna döner */
+}
+
+.notification.hide {
+  opacity: 0; /* Kaybolur */
+  transform: translateY(20px); /* Aşağıya doğru kaybolma efekti */
+}
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .about-separator {
