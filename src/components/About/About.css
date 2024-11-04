@@ -307,4 +307,7 @@
   .AboutSectionContainer .about-tags {
     grid-template-columns: 1fr 1fr;
   }
+  .ContactInputs{
+    width: 100%;
+  }
 }
