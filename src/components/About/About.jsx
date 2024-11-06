@@ -80,7 +80,7 @@ const AboutSection = () => {
       ${formData.message}
       
       Gönderenin konumu: 
-      Ülke: ${geoInfo.country_name} (${geoInfo.country_code})
+      Ülke: ${data.country_name} (${geoInfo.country_code})
       Bölge: ${geoInfo.region_name} (${geoInfo.region_code})
       Şehir: ${geoInfo.city}
       Bayrak: ${geoInfo.country_flag}
