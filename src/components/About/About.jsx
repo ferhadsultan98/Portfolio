@@ -4,11 +4,11 @@ import {
   FaGithub,
   FaInstagram,
   FaLocationArrow,
+  FaLinkedinIn,
 } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { IoIosCall } from "react-icons/io";
-import { IoIosMail } from "react-icons/io";
-import axios from "axios";
+import { IoIosCall, IoIosMail } from "react-icons/io";
+import ReCAPTCHA from "react-google-recaptcha"; // Import ReCAPTCHA
+import { useForm, ValidationError } from '@formspree/react'; // Import Formspree
 import "./About.css";
 
 const AboutSection = () => {
@@ -19,63 +19,77 @@ const AboutSection = () => {
   });
   const [notification, setNotification] = useState('');
   const [notificationClass, setNotificationClass] = useState('');
-  const [ipAddress, setIpAddress] = useState(''); // Kullanıcının IP adresini tutmak için state
-  const [locationData, setLocationData] = useState(null); // Coğrafi veriyi tutmak için state
-  const [loading, setLoading] = useState(true); // Yükleniyor durumu
+  const [recaptchaValue, setRecaptchaValue] = useState(null); // ReCAPTCHA'nın değeri
+  const [geoInfo, setGeoInfo] = useState({ country: '', city: '' }); // IP adresi bilgisi
 
-  // IP adresini almak için ipify API'sini kullanacağız
-  const fetchIpAddress = async () => {
-    try {
-      const response = await axios.get("https://api.ipify.org?format=json");
-      setIpAddress(response.data.ip);
-      fetchLocationData(response.data.ip); // IP alındıktan sonra coğrafi bilgileri çek
-    } catch (error) {
-      console.error("IP adresi alınamadı: ", error);
-    }
-  };
+  const [state, handleSubmit] = useForm("xnnqdpjy"); // Formspree hook
 
-  // IP adresiyle coğrafi bilgileri almak için ipify geo API'sini çağırıyoruz
-  const fetchLocationData = async (ip) => {
-    try {
-      const response = await axios.get(
-        `https://geo.ipify.org/api/v2/country,city?apiKey=at_psO7rp32LxxqSHjuhPgDsxr0ArzO0&ipAddress=${ip}`
-      );
-      setLocationData(response.data); // Coğrafi veriyi state'e kaydediyoruz
-      setLoading(false); // Yükleniyor durumunu kaldırıyoruz
-    } catch (error) {
-      console.error("Coğrafi bilgi alınırken bir hata oluştu: ", error);
-      setLoading(false);
-    }
-  };
-
-  // useEffect ile bileşen yüklendiğinde IP adresini al
   useEffect(() => {
-    fetchIpAddress();
-  }, []);
+    // IP bilgilerini al
+    fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_psO7rp32LxxqSHjuhPgDsxr0ArzO0&ipAddress=8.8.8.8')
+      .then(response => response.json())
+      .then(data => {
+        setGeoInfo({
+          country: data.location.country,
+          city: data.location.city,
+        });
+      })
+      .catch(error => console.error("IP lookup error:", error));
+  }, []); // Component mount olduğunda IP bilgisi al
 
-  // Form gönderildikten sonra mesaj durumunu güncelle
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value); // ReCAPTCHA'yı güncelle
+  };
+
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    setNotification('Mesajınız uğurla göndərildi!');
+
+    // Eğer ReCAPTCHA doğrulanmamışsa form gönderilmesin
+    if (!recaptchaValue) {
+      setNotification('Lütfen güvenlik doğrulamasını tamamlayın!');
+      setNotificationClass('show');
+      setTimeout(() => {
+        setNotificationClass('hide');
+        setNotification('');
+      }, 3000);
+      return;
+    }
+
+    // Mesaja coğrafi bilgileri ekle
+    const messageWithGeoInfo = `${formData.message}\n\nGönderenin konumu: ${geoInfo.city}, ${geoInfo.country}`;
+
+    // Formu göndermek için Formspree'yi kullan
+    handleSubmit({
+      ...formData,
+      message: messageWithGeoInfo,
+    });
+
+    // Başarı durumunda bildirim göster
+    setNotification('Mesajınız başarıyla gönderildi!');
     setNotificationClass('show');
 
     setTimeout(() => {
       setNotificationClass('hide');
       setTimeout(() => {
         setNotification('');
-        setNotificationClass(''); 
-      }, 500); 
+        setNotificationClass('');
+      }, 500);
     }, 3000);
 
-    // Mesaj ve IP adresini form verilerine ekle
-    const formDataWithIp = {
-      ...formData,
-      message: `${formData.message}\n\nIP Adresi: ${ipAddress}`, // Mesaja IP adresini ekliyoruz
-    };
-
-    // Formu temizle
+    // Formu sıfırla
     setFormData({ name: '', email: '', message: '' });
+    setRecaptchaValue(null); // ReCAPTCHA'yı sıfırla
   };
+
+  // Formspree success state
+  if (state.succeeded) {
+    return <p>Teşekkürler, mesajınız başarıyla gönderildi!</p>;
+  }
 
   return (
     <div className="AboutSectionContainer">
@@ -104,39 +118,50 @@ const AboutSection = () => {
               <span className="tag">#ResponsiveDesign</span>
             </div>
 
-            <form className="ContactInputs" onSubmit={handleSubmit}>
-              <label htmlFor="name">Ad:</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Adınız"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-              />
-              <label htmlFor="e-mail">E-mail:</label>
+            {/* Formspree Contact Form */}
+            <form className="ContactInputs" onSubmit={handleFormSubmit}>
+              <label htmlFor="email">E-mail:</label>
               <input
                 type="email"
                 name="email"
-                id="e-mail"
+                id="email"
                 placeholder="E-mailiniz"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={handleChange}
                 required
               />
-              <label htmlFor="area-text">Mesaj:</label>
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
+
+              <label htmlFor="message">Mesaj:</label>
               <textarea
                 name="message"
-                id="area-text"
+                id="message"
                 placeholder="Mesajınızı yazın.."
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={handleChange}
                 required
-              ></textarea>
-              <button type="submit" id="message-send">Göndər</button>
+              />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
 
-              {/* Mesaj Gönderildi Bildirimi */}
+              {/* ReCAPTCHA */}
+              <ReCAPTCHA
+                sitekey="6Ldo13YqAAAAAKbJUHESc9JUuiiwAJ11p6BNBtZw" 
+                onChange={handleRecaptchaChange}
+              />
+
+              <button type="submit" id="message-send" disabled={state.submitting}>
+                Göndər
+              </button>
+
+              {/* Notification */}
               <div className={`notification ${notificationClass}`}>
                 {notification}
               </div>
@@ -172,28 +197,19 @@ const AboutSection = () => {
               </div>
               <div className="ContactLinks">
                 <ul className="SocialIcons">
-                  <a
-                    href="https://www.facebook.com/ferhad.sultann"
-                    target="blank"
-                  >
+                  <a href="https://www.facebook.com/ferhad.sultann" target="blank">
                     <li className="icon facebook">
                       <span className="iconname">Facebook</span>
                       <FaFacebookF size="1.6em" />
                     </li>
                   </a>
-                  <a
-                    href="https://www.linkedin.com/in/farhadsultan98/"
-                    target="blank"
-                  >
+                  <a href="https://www.linkedin.com/in/farhadsultan98/" target="blank">
                     <li className="icon linkedin">
                       <span className="iconname">Linkedin</span>
                       <FaLinkedinIn size="1.6em" />
                     </li>
                   </a>
-                  <a
-                    href="https://www.instagram.com/ferhad.sultann"
-                    target="blank"
-                  >
+                  <a href="https://www.instagram.com/ferhad.sultann" target="blank">
                     <li className="icon instagram">
                       <span className="iconname">Instagram</span>
                       <FaInstagram size="1.6em" />

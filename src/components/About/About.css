@@ -264,25 +264,26 @@
   background-color: #0056b3;
 }
 .ContactInputs .notification {
-  display: none;
-  padding: 10px;
-  background-color: #4CAF50;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  background-color: #4caf50;
   color: white;
+  padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
-  text-align: center;
-  font-size: 16px;
-  transition: opacity 0.3s ease;
 }
 
 .notification.show {
-  display: block;
   opacity: 1;
+  visibility: visible;
 }
 
 .notification.hide {
-  opacity: 0; /* Kaybolur */
+  opacity: 0;
+  visibility: hidden;
 }
+
 
 
 /* Responsive Styles */
