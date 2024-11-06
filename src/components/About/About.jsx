@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { useForm, ValidationError } from "@formspree/react";
-import ReCAPTCHA from "react-google-recaptcha";
-import axios from "axios";
 import {
   FaFacebookF,
   FaGithub,
   FaInstagram,
   FaLocationArrow,
-  FaLinkedinIn,
 } from "react-icons/fa";
-import { IoIosCall, IoIosMail } from "react-icons/io";
+import { FaLinkedinIn } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
+import { IoIosMail } from "react-icons/io";
+import axios from "axios";
 import "./About.css";
 
 const AboutSection = () => {
-  const [state, handleSubmit] = useForm("xnnqdpjy"); // Formspree form ID'nizi buraya ekleyin
-  const [messageSent, setMessageSent] = useState(false); // Form gönderildikten sonra mesaj durumu
-  const [recaptchaValue, setRecaptchaValue] = useState(null); // reCAPTCHA değeri
-  const [ipAddress, setIpAddress] = useState(""); // Kullanıcının IP adresi
-  const [locationData, setLocationData] = useState(null); // Coğrafi bilgileri tutan state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [notification, setNotification] = useState('');
+  const [notificationClass, setNotificationClass] = useState('');
+  const [ipAddress, setIpAddress] = useState(''); // Kullanıcının IP adresini tutmak için state
+  const [locationData, setLocationData] = useState(null); // Coğrafi veriyi tutmak için state
   const [loading, setLoading] = useState(true); // Yükleniyor durumu
 
   // IP adresini almak için ipify API'sini kullanacağız
@@ -51,30 +54,32 @@ const AboutSection = () => {
   }, []);
 
   // Form gönderildikten sonra mesaj durumunu güncelle
-  const handleFormSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (recaptchaValue) {
-      // Form verilerine IP adresini de ekliyoruz
-      const formDataWithIp = {
-        ...state.values,
-        ipAddress: ipAddress, // IP adresini burada form verilerine ekliyoruz
-      };
+    setNotification('Mesajınız uğurla göndərildi!');
+    setNotificationClass('show');
 
-      // Formspree'yi veri ile gönder
-      handleSubmit(e, formDataWithIp);
-      
-      setMessageSent(true); // Form başarıyla gönderildiğinde bildirim göster
+    setTimeout(() => {
+      setNotificationClass('hide');
       setTimeout(() => {
-        setMessageSent(false); // 3 saniye sonra bildirim kaybolur
-      }, 3000);
-    } else {
-      alert("Zəhmət olmasa reCAPTCHA yoxlamasını tamamlayın!");
-    }
+        setNotification('');
+        setNotificationClass(''); 
+      }, 500); 
+    }, 3000);
+
+    // Mesaj ve IP adresini form verilerine ekle
+    const formDataWithIp = {
+      ...formData,
+      message: `${formData.message}\n\nIP Adresi: ${ipAddress}`, // Mesaja IP adresini ekliyoruz
+    };
+
+    // Formu temizle
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
     <div className="AboutSectionContainer">
-      <h1>Hakkımda</h1>
+      <h1>About</h1>
       <hr className="about-separator" />
       <div className="about-container">
         <div className="about-card">
@@ -99,73 +104,53 @@ const AboutSection = () => {
               <span className="tag">#ResponsiveDesign</span>
             </div>
 
-            {/* Form Bölümü */}
-            <form className="ContactInputs" onSubmit={handleFormSubmit}>
+            <form className="ContactInputs" onSubmit={handleSubmit}>
               <label htmlFor="name">Ad:</label>
-              <input id="name" type="text" name="name" placeholder="Adınız" />
-              <ValidationError
-                prefix="Name"
-                field="name"
-                errors={state.errors}
-              />
-
-              <label htmlFor="email">E-mail:</label>
               <input
-                id="email"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Adınız"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+              />
+              <label htmlFor="e-mail">E-mail:</label>
+              <input
                 type="email"
                 name="email"
+                id="e-mail"
                 placeholder="E-mailiniz"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
               />
-              <ValidationError
-                prefix="Email"
-                field="email"
-                errors={state.errors}
-              />
-
-              <label htmlFor="message">Mesaj:</label>
+              <label htmlFor="area-text">Mesaj:</label>
               <textarea
-                id="message"
                 name="message"
+                id="area-text"
                 placeholder="Mesajınızı yazın.."
-              />
-              <ValidationError
-                prefix="Message"
-                field="message"
-                errors={state.errors}
-              />
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                required
+              ></textarea>
+              <button type="submit" id="message-send">Göndər</button>
 
-              {/* ReCAPTCHA */}
-              <ReCAPTCHA
-                sitekey="6Le1t3YqAAAAAOzep0YegC8GwSrmzZANgR5Csi-H"
-                onChange={setRecaptchaValue}
-              />
-
-              <button
-                type="submit"
-                id="message-send"
-                disabled={state.submitting}
-              >
-                Gönder
-              </button>
+              {/* Mesaj Gönderildi Bildirimi */}
+              <div className={`notification ${notificationClass}`}>
+                {notification}
+              </div>
             </form>
 
-            {/* Mesaj Gönderildi Bildirimi */}
-            {messageSent && (
-              <div className="notification fade-in-out">
-                Mesajınız başarıyla gönderildi!
-              </div>
-            )}
-
-            {/* İletişim Bilgileri */}
             <div className="contact-info-container">
-              <h2>İletişim</h2>
+              <h2>Contact</h2>
               <div className="CommonContact">
                 <a>
                   <p>
                     <i>
                       <FaLocationArrow size="1.2em" />
                     </i>
-                    {loading ? "Yükleniyor..." : locationData ? locationData.city : "Bilinmiyor"} , {locationData ? locationData.country : "Bilinmiyor"}
+                    Baku, N.Narimanov
                   </p>
                 </a>
                 <a href="tel:+994555254193">
@@ -185,7 +170,6 @@ const AboutSection = () => {
                   </p>
                 </a>
               </div>
-
               <div className="ContactLinks">
                 <ul className="SocialIcons">
                   <a
