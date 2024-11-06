@@ -20,18 +20,33 @@ const AboutSection = () => {
   const [notification, setNotification] = useState('');
   const [notificationClass, setNotificationClass] = useState('');
   const [recaptchaValue, setRecaptchaValue] = useState(null); // ReCAPTCHA'nın değeri
-  const [geoInfo, setGeoInfo] = useState({ country: '', city: '' }); // IP adresi bilgisi
+  const [geoInfo, setGeoInfo] = useState({
+    country_code: '',
+    country_name: '',
+    region_code: '',
+    region_name: '',
+    city: '',
+    country_flag: '',
+    current_time: '',
+    currency_code: ''
+  }); // IP adresi bilgisi
 
   const [state, handleSubmit] = useForm("xnnqdpjy"); // Formspree hook
 
   useEffect(() => {
-    // IP bilgilerini al
-    fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_psO7rp32LxxqSHjuhPgDsxr0ArzO0&ipAddress=8.8.8.8')
+    // ipstack API ile coğrafi bilgiyi al
+    fetch('http://api.ipstack.com/check?access_key=95a17e2bf0aab492780d2512f6dc5082')
       .then(response => response.json())
       .then(data => {
         setGeoInfo({
-          country: data.location.country,
-          city: data.location.city,
+          country_code: data.country_code,
+          country_name: data.country_name,
+          region_code: data.region_code,
+          region_name: data.region_name,
+          city: data.city,
+          country_flag: data.location.country_flag,
+          current_time: data.time_zone.current_time,
+          currency_code: data.currency.code
         });
       })
       .catch(error => console.error("IP lookup error:", error));
@@ -61,7 +76,17 @@ const AboutSection = () => {
     }
 
     // Mesaja coğrafi bilgileri ekle
-    const messageWithGeoInfo = `${formData.message}\n\nGönderenin konumu: ${geoInfo.city}, ${geoInfo.country}`;
+    const messageWithGeoInfo = `
+      ${formData.message}
+      
+      Gönderenin konumu: 
+      Ülke: ${geoInfo.country_name} (${geoInfo.country_code})
+      Bölge: ${geoInfo.region_name} (${geoInfo.region_code})
+      Şehir: ${geoInfo.city}
+      Bayrak: ${geoInfo.country_flag}
+      Zaman: ${geoInfo.current_time}
+      Para Birimi: ${geoInfo.currency_code}
+    `;
 
     // Formu göndermek için Formspree'yi kullan
     handleSubmit({
@@ -120,16 +145,17 @@ const AboutSection = () => {
 
             {/* Formspree Contact Form */}
             <form className="ContactInputs" onSubmit={handleFormSubmit}>
-            <label htmlFor="name">Ad:</label>
+              <label htmlFor="name">Adınız:</label>
               <input
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Adınız"
+                placeholder="Adınızı girin"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
+
               <label htmlFor="email">E-mail:</label>
               <input
                 type="email"
@@ -163,7 +189,7 @@ const AboutSection = () => {
 
               {/* ReCAPTCHA */}
               <ReCAPTCHA
-                sitekey="6Ldo13YqAAAAAKbJUHESc9JUuiiwAJ11p6BNBtZw" 
+                sitekey="YOUR_SITE_KEY" // Replace with your site key
                 onChange={handleRecaptchaChange}
               />
 
