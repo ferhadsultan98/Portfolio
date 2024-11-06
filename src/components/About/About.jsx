@@ -102,7 +102,7 @@ const AboutSection = () => {
 
               {/* ReCAPTCHA */}
               <ReCAPTCHA
-                sitekey="6LeDtXYqAAAAAOwIfVuHIkhhQuGx62n4eNDwBKOj"
+                sitekey="6Le1t3YqAAAAAOzep0YegC8GwSrmzZANgR5Csi-H"
                 onChange={setRecaptchaValue}
               />
 
