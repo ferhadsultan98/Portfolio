@@ -189,7 +189,7 @@ const AboutSection = () => {
 
               {/* ReCAPTCHA */}
               <ReCAPTCHA
-                sitekey="YOUR_SITE_KEY" // Replace with your site key
+                sitekey="6Ldo13YqAAAAAKbJUHESc9JUuiiwAJ11p6BNBtZw" // Replace with your site key
                 onChange={handleRecaptchaChange}
               />
 
