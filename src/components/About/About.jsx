@@ -30,7 +30,7 @@ const AboutSection = () => {
   // Fetch location from IPStack API
   useEffect(() => {
     // Replace with your IPStack API key
-    const ipStackAPIKey = '95a17e2bf0aab492780d2512f6dc5082';
+    const ipStackAPIKey = 'd296f3cfbc75050526368e3f85d480db';
 
     const fetchLocation = async () => {
       try {
