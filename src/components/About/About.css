@@ -264,27 +264,24 @@
   background-color: #0056b3;
 }
 .ContactInputs .notification {
-  background-color: #007bff;
-  color: white;
+  display: none;
   padding: 10px;
-  border-radius: 4px;
-  width: 80%;
- margin: 15px auto;
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
   text-align: center;
-  position: relative;
-  opacity: 0; /* Başlangıçta görünmez */
-  transform: translateY(20px); /* Aşağıdan gelme efekti */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Geçiş efekti */
+  font-size: 16px;
+  transition: opacity 0.3s ease;
 }
 
 .notification.show {
-  opacity: 1; /* Görünür hale gelir */
-  transform: translateY(0); /* Normal konumuna döner */
+  display: block;
+  opacity: 1;
 }
 
 .notification.hide {
   opacity: 0; /* Kaybolur */
-  transform: translateY(20px); /* Aşağıya doğru kaybolma efekti */
 }
 
 
