@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaGithub,
   FaInstagram,
   FaLocationArrow,
-  FaLinkedinIn,
 } from "react-icons/fa";
-import { IoIosCall, IoIosMail } from "react-icons/io";
-import ReCAPTCHA from "react-google-recaptcha"; // Import ReCAPTCHA
-import { useForm, ValidationError } from '@formspree/react'; // Import Formspree
 import "./About.css";
+import { FaLinkedinIn } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
+import { IoIosMail } from "react-icons/io";
 
 const AboutSection = () => {
   const [formData, setFormData] = useState({
@@ -19,102 +18,29 @@ const AboutSection = () => {
   });
   const [notification, setNotification] = useState('');
   const [notificationClass, setNotificationClass] = useState('');
-  const [recaptchaValue, setRecaptchaValue] = useState(null); // ReCAPTCHA'nın değeri
-  const [geoInfo, setGeoInfo] = useState({
-    country_code: '',
-    country_name: '',
-    region_code: '',
-    region_name: '',
-    city: '',
-    country_flag: '',
-    current_time: '',
-    currency_code: ''
-  }); // IP adresi bilgisi
-
-  const [state, handleSubmit] = useForm("xnnqdpjy"); // Formspree hook
-
-  useEffect(() => {
-    // ipstack API ile coğrafi bilgiyi al
-    fetch('http://api.ipstack.com/check?access_key=95a17e2bf0aab492780d2512f6dc5082')
-      .then(response => response.json())
-      .then(data => {
-        setGeoInfo({
-          country_code: data.country_code,
-          country_name: data.country_name,
-          region_code: data.region_code,
-          region_name: data.region_name,
-          city: data.city,
-          country_flag: data.location.country_flag,
-          current_time: data.time_zone.current_time,
-          currency_code: data.currency.code
-        });
-      })
-      .catch(error => console.error("IP lookup error:", error));
-  }, []); // Component mount olduğunda IP bilgisi al
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value); // ReCAPTCHA'yı güncelle
-  };
-
-  const handleFormSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Eğer ReCAPTCHA doğrulanmamışsa form gönderilmesin
-    if (!recaptchaValue) {
-      setNotification('Lütfen güvenlik doğrulamasını tamamlayın!');
-      setNotificationClass('show');
-      setTimeout(() => {
-        setNotificationClass('hide');
-        setNotification('');
-      }, 3000);
-      return;
-    }
-
-    // Mesaja coğrafi bilgileri ekle
-    const messageWithGeoInfo = `
-      ${formData.message}
-      
-      Gönderenin konumu: 
-      Ülke: ${data.country_name} (${geoInfo.country_code})
-      Bölge: ${geoInfo.region_name} (${geoInfo.region_code})
-      Şehir: ${geoInfo.city}
-      Bayrak: ${geoInfo.country_flag}
-      Zaman: ${geoInfo.current_time}
-      Para Birimi: ${geoInfo.currency_code}
-    `;
-
-    // Formu göndermek için Formspree'yi kullan
-    handleSubmit({
-      ...formData,
-      message: messageWithGeoInfo,
-    });
-
-    // Başarı durumunda bildirim göster
-    setNotification('Mesajınız başarıyla gönderildi!');
+    setNotification('Mesajınız uğurla göndərildi!');
     setNotificationClass('show');
+
 
     setTimeout(() => {
       setNotificationClass('hide');
       setTimeout(() => {
         setNotification('');
-        setNotificationClass('');
-      }, 500);
+        setNotificationClass(''); 
+      }, 500); 
     }, 3000);
 
-    // Formu sıfırla
-    setFormData({ name: '', email: '', message: '' });
-    setRecaptchaValue(null); // ReCAPTCHA'yı sıfırla
-  };
 
-  // Formspree success state
-  if (state.succeeded) {
-    return <p>Teşekkürler, mesajınız başarıyla gönderildi!</p>;
-  }
+    setFormData({ name: '', email: '', message: '' });
+  };
 
   return (
     <div className="AboutSectionContainer">
@@ -142,67 +68,42 @@ const AboutSection = () => {
               <span className="tag">#CSS</span>
               <span className="tag">#ResponsiveDesign</span>
             </div>
-
-            {/* Formspree Contact Form */}
-            <form className="ContactInputs" onSubmit={handleFormSubmit}>
-              <label htmlFor="name">Adınız:</label>
+            <form className="ContactInputs" onSubmit={handleSubmit}>
+              <label htmlFor="name">Ad:</label>
               <input
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Adınızı girin"
+                placeholder="Adınız"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
-
-              <label htmlFor="email">E-mail:</label>
+              <label htmlFor="e-mail">E-mail:</label>
               <input
                 type="email"
                 name="email"
-                id="email"
+                id="e-mail"
                 placeholder="E-mailiniz"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
-              <ValidationError
-                prefix="Email"
-                field="email"
-                errors={state.errors}
-              />
-
-              <label htmlFor="message">Mesaj:</label>
+              <label htmlFor="area-text">Mesaj:</label>
               <textarea
                 name="message"
-                id="message"
+                id="area-text"
                 placeholder="Mesajınızı yazın.."
                 value={formData.message}
                 onChange={handleChange}
                 required
-              />
-              <ValidationError
-                prefix="Message"
-                field="message"
-                errors={state.errors}
-              />
-
-              {/* ReCAPTCHA */}
-              <ReCAPTCHA
-                sitekey="6Ldo13YqAAAAAKbJUHESc9JUuiiwAJ11p6BNBtZw" // Replace with your site key
-                onChange={handleRecaptchaChange}
-              />
-
-              <button type="submit" id="message-send" disabled={state.submitting}>
-                Göndər
-              </button>
-
-              {/* Notification */}
+              ></textarea>
+              <button type="submit" id="message-send">Göndər</button>
               <div className={`notification ${notificationClass}`}>
-                {notification}
-              </div>
+              {notification}
+            </div>
             </form>
-
+            
             <div className="contact-info-container">
               <h2>Contact</h2>
               <div className="CommonContact">
@@ -233,19 +134,28 @@ const AboutSection = () => {
               </div>
               <div className="ContactLinks">
                 <ul className="SocialIcons">
-                  <a href="https://www.facebook.com/ferhad.sultann" target="blank">
+                  <a
+                    href="https://www.facebook.com/ferhad.sultann"
+                    target="blank"
+                  >
                     <li className="icon facebook">
                       <span className="iconname">Facebook</span>
                       <FaFacebookF size="1.6em" />
                     </li>
                   </a>
-                  <a href="https://www.linkedin.com/in/farhadsultan98/" target="blank">
+                  <a
+                    href="https://www.linkedin.com/in/farhadsultan98/"
+                    target="blank"
+                  >
                     <li className="icon linkedin">
                       <span className="iconname">Linkedin</span>
                       <FaLinkedinIn size="1.6em" />
                     </li>
                   </a>
-                  <a href="https://www.instagram.com/ferhad.sultann" target="blank">
+                  <a
+                    href="https://www.instagram.com/ferhad.sultann"
+                    target="blank"
+                  >
                     <li className="icon instagram">
                       <span className="iconname">Instagram</span>
                       <FaInstagram size="1.6em" />
@@ -260,6 +170,7 @@ const AboutSection = () => {
                 </ul>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
