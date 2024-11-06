@@ -20,7 +20,6 @@ const AboutSection = () => {
     ip: '',
     countryFlag: '',
     countryCode: '',
-    countryName: '',
     city: '',
   });
   const [recaptchaValue, setRecaptchaValue] = useState(null);  // Store ReCAPTCHA value
@@ -30,20 +29,19 @@ const AboutSection = () => {
 
   // Fetch location from IPStack API
   useEffect(() => {
-    const ipStackAPIKey = 'd296f3cfbc75050526368e3f85d480db'; // Replace with your IPStack API key
+    // Replace with your IPStack API key
+    const ipStackAPIKey = 'd296f3cfbc75050526368e3f85d480db';
 
     const fetchLocation = async () => {
       try {
         const response = await axios.get(`http://api.ipstack.com/check?access_key=${ipStackAPIKey}`);
         if (response.data) {
-          const { ip, location } = response.data;
-          const { country_flag, country_code, country_name, city } = location;
+          const { ip, country_flag, country_code, city } = response.data;
           setLocationData({
             ip,
             countryFlag: country_flag,
             countryCode: country_code,
-            countryName: country_name,
-            city,
+            city: city,
           });
         }
       } catch (error) {
@@ -182,7 +180,7 @@ const AboutSection = () => {
                     <i>
                       <FaLocationArrow size="1.2em" />
                     </i>
-                    {locationData.city}, {locationData.countryName}
+                    Baku, N.Narimanov
                   </p>
                 </a>
                 <a href="tel:+994555254193">
