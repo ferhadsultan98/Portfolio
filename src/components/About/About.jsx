@@ -120,6 +120,16 @@ const AboutSection = () => {
 
             {/* Formspree Contact Form */}
             <form className="ContactInputs" onSubmit={handleFormSubmit}>
+            <label htmlFor="name">Ad:</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Adınız"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
               <label htmlFor="email">E-mail:</label>
               <input
                 type="email"
