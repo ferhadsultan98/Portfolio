@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Projects.css';
-import projectsData from './projects.json'; 
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import projectsData from './projects.json';
+import { IoLogoGithub } from "react-icons/io";
 
 const Projects = () => {
   const [cards, setCards] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [currentImages, setCurrentImages] = useState([]);
 
   useEffect(() => {
     setCards(projectsData);
@@ -20,23 +18,6 @@ const Projects = () => {
     });
   }, []);
 
-  const openModal = (images) => {
-    setCurrentImages(images);
-    setModalOpen(true);
-    setTimeout(() => {
-      const overlay = document.querySelector('.modal-overlay');
-      overlay.classList.add('active');
-    }, 10); 
-  };
-
-  const closeModal = () => {
-    const overlay = document.querySelector('.modal-overlay');
-    overlay.classList.remove('active');
-    setTimeout(() => {
-      setModalOpen(false);
-    }, 500);
-  };
-
   return (
     <div className="ProjeContainer">
       <h1>Projects</h1>
@@ -48,12 +29,12 @@ const Projects = () => {
               <img src={card.imgSrc} alt={`${card.title} Logo`} />
             </div>
             <div className="card-hover">
-              <a href="#">
-                <i className="lni lni-github-original"></i>
+              {/* GitHub Icon Link using githubLink from JSON */}
+              <a href={card.githubLink} target="_blank" rel="noopener noreferrer">
+                <IoLogoGithub size={40} color="white" />
               </a>
               <h3>{card.title}</h3>
               <p>{card.description}</p>
-              <button className="view-more" onClick={() => openModal(card.images)}>View More</button>
               <div className="tags">
                 {card.tags.map((tag, tagIndex) => (
                   <div className="tag" key={tagIndex}>{tag}</div>
@@ -63,20 +44,6 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      
-      {/* Modal Content */}
-      {modalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="close-button" onClick={closeModal}><i><IoIosCloseCircleOutline /></i></button>
-            <div className="slideshow">
-              {currentImages.map((image, index) => (
-                <img src={image} alt={`Slide ${index}`} key={index} className="slide" />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
