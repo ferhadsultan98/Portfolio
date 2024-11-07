@@ -37,16 +37,21 @@ body {
 .CommonMenu .MainOne {
   margin-bottom: 30vh;
   height: 100%;
+  padding-top: 15vh;
+  display: grid;
+  grid-template-columns: 500px 400px;
+  grid-template-rows: 500px;
+  justify-content: center;
+  gap: 80px;
+  overflow: hidden;
 }
 .CommonMenu .ProjectsSection {
   height: 100%;
   margin-bottom: 42vh;
-  width: 100%;
 }
 .CommonMenu .AboutSection {
   height: 100%;
   margin-bottom: 25vh;
-  width: 100%;
 }
 
 .CommonMenu .background-video {
@@ -61,27 +66,19 @@ body {
   transform: translate(-50%, -50%);
 }
 /* Main Container */
-.CommonMenu .MainOne {
-  padding-top: 15vh;
-  display: grid;
-  grid-template-columns: 500px 400px;
-  grid-template-rows: 500px;
-  justify-content: center;
-  gap: 80px;
-  overflow: hidden;
-}
+
 
 /* Left Section */
 .CommonMenu .left {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 .CommonMenu .left .hi {
   display: flex;
   gap: 5px;
-  align-items: center;
 }
 
 .CommonMenu .hi img {
@@ -108,9 +105,8 @@ body {
 .CommonMenu .left .info {
   font-size: 26px;
   color: gray;
-  margin: 10px 0;
+  margin: 10px auto;
   max-width: 600px;
-  text-align: center;
 }
 
 /* Button Styles */
@@ -298,14 +294,16 @@ body {
     transform: translateX(4px);
   }
   .CommonMenu .frontend {
-    font-size: 36px;
+    font-size: 32px;
   }
   .CommonMenu .frontend .up {
     max-width: 100%;
     display: flex;
+    height: 75px;
   }
   .CommonMenu .left .info {
     font-size: 22px;
+   text-align: center;
   }
 
   .CommonMenu .buttons {
@@ -315,7 +313,7 @@ body {
     width: 34vw;
   }
   .CommonMenu .left .info {
-    max-width: 400px;
+    max-width: 380px;
   }
   .CommonMenu .right {
     margin: 50px;

@@ -118,6 +118,9 @@ header ul li:hover::after {
   header {
     padding: 0 10px;
     min-width: 100%;
+    top: 0;
+    left: 0; 
+    right: 0; 
   }
   header .hamburger-react-menuicon {
     display: block;

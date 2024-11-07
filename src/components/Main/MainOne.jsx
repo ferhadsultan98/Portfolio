@@ -8,7 +8,6 @@ import { FaDownload } from "react-icons/fa";
 import BackVideo from "../../assets/BackVideo.mp4";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import CVSection from "../CV/CVSection";
 
 const MainOne = () => {
   const projectsRef = useRef(null);
@@ -50,6 +49,7 @@ const MainOne = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
+      once: false,
     });
   }, []);
   return (
@@ -114,12 +114,11 @@ const MainOne = () => {
         className="AboutSection"
         data-aos="fade-down"
         data-aos-anchor-placement="center-bottom"
+        data-aos-once="false"
       >
         <AboutSection />
       </div>
-      {/* <div className="CVSection" data-aos="fade-up">
-        <CVSection />
-      </div> */}
+     
     </div>
   );
 };
