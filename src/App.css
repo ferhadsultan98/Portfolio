@@ -8,8 +8,11 @@
  ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
+  transition: 1s;
 }
-
+::-webkit-scrollbar:hover{
+  width: 8px;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   background: hsla(0, 0%, 100%);
