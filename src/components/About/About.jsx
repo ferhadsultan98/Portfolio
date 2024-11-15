@@ -153,7 +153,7 @@ const AboutSection = () => {
               />
               
               <button type="submit" id="message-send" disabled={state.submitting}>
-                Göndər
+                Send
               </button>
               <div className={`notification ${notificationClass}`}>
                 {notification}
@@ -180,7 +180,7 @@ const AboutSection = () => {
                     <i>
                       <FaLocationArrow size="1.2em" />
                     </i>
-                    Baku, N.Narimanov
+                    Baku, N.Narimanov 27
                   </p>
                 </a>
                 <a href="tel:+994555254193">
