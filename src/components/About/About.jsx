@@ -120,12 +120,12 @@ const AboutSection = () => {
             </div>
 
             <form className="ContactInputs" onSubmit={handleFormSubmit}>
-              <label htmlFor="name">Ad:</label>
+              <label htmlFor="name">Full Name:</label>
               <input
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Adınız"
+                placeholder="Full Name"
                 required
               />
               <label htmlFor="email">E-mail:</label>
@@ -133,14 +133,14 @@ const AboutSection = () => {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="E-mailiniz"
+                placeholder="E-mail"
                 required
               />
               <label htmlFor="message">Mesaj:</label>
               <textarea
                 name="message"
                 id="message"
-                placeholder="Mesajınızı yazın.."
+                placeholder="Message..."
                 required
               ></textarea>
               
